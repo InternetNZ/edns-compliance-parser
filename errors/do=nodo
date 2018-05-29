@@ -1,0 +1,7 @@
+----
+Error: do=nodo
+Steps to reproduce: dig @<SERVER> +edns=0 +nocookie +noad +norec +dnssec SOA <DOMAIN>
+Expected: The answer should come with the line "; EDNS: version:0, flags: do; ..."
+Explanation: RFC3225, section 3: "The DO bit of the query MUST be copied in the response."
+Solution: Upgrade DNS server to a compliant one. Server should answer either with do flag bit set or with FORMERR in case of EDNS unsupported.
+----
