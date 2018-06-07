@@ -1,0 +1,7 @@
+----
+Error: edns=noopt
+Steps to reproduce: dig @<SERVER> +edns=0 +nocookie +noad +norec SOA <DOMAIN>
+Expected: The answer should come with the section ";; OPT PSEUDOSECTION:\n; EDNS: version: 0..." or with FORMERR.
+Explanation: RFC3225, subsection 6.1.1.: "If an OPT record is present in a received request, compliant responders MUST include an OPT record in their respective responses."
+Solution: Upgrade DNS server to a compliant one. Server should answer either with opt pseudosection or with FORMERR in case of unsupported EDNS.
+----
