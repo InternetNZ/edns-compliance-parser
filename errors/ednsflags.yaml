@@ -1,0 +1,46 @@
+----
+Test: ednsflags
+Steps to reproduce: dig @<SERVER> +edns=1 +noednsneg +nocookie +noad +norec +dnssec SOA <DOMAIN>
+Expected: 
+Explanation: 
+Solution: 
+Errors:
+    timeout: The server didn't respond on time
+    servfail: Response came back with a SERVFAIL response code
+    refused: The response came back with a REFUSED responde code
+    nosoa,noaa: Response didn't return a SOA record and the AA was not set.
+    nosoa: Response didn't return a SOA record
+    mbz:
+    noopt: 
+    malformed: The response couldn't be parsed
+    ok,nsid: The response included the NSID option when it was not requested
+    noopt,nosoa,noaa: The response didn't include the OPT record, neither the SOA record and the AA bit
+    nosoa: The response didn't contain a response with a SOA record
+    nosoa,noaa,nsid: The response included the NSID option but it was not set, no SOA record in the response, no AA bit set.
+    servfail,noopt: The response contains a SERVFAIL error and no OPT record.
+    refused,noopt: The response contains a REFUSED error an no OPT record.
+    noopt,rd:
+    nxdomain:
+    servfail,mbz:
+    noopt,noaa:
+    noopt,noaa,rd:
+    connection-refused:
+    refused,mbz:
+    noaa,mbz:
+    rd:
+    refused,nsid:
+    noopt,nosoa,noaa,rd:
+    nosoa,noaa,mbz:
+    servfail,subnet:
+    nxdomain,nsid:
+    nosoa,nsid:
+    noopt,nosoa:
+    nxdomain,noopt:
+    cd:
+    noaa:
+    formerr,mbz:
+    nxdomain,noopt,soa:
+    formerr,noopt:
+    nosoa,mbz:
+    badvers,badversion:
+----

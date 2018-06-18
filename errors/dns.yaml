@@ -1,0 +1,24 @@
+----
+Test: dns
+Steps to reproduce: dig @<SERVER> +noedns +noad +norec SOA <DOMAIN>
+Expected: The answer should come with the SOA record and the AA bit set (unless there is a lame delegation)
+Explanation: 
+Solution: Upgrade DNS server to a compliant one. 
+Errors:
+    timeout: The server didn't respond on time
+    refused: The response came back with a REFUSED responde code
+    nosoa,noaa: Response didn't return a SOA record and the AA was not set.
+    servfail: Response came back with a SERVFAIL response code
+    nosoa: Response didn't return a SOA record
+    nxdomain:
+    opt,nsid:
+    noaa,rd:
+    noaa:
+    rd:
+    connection-refused:
+    nosoa,noaa,rd:
+    opt,nosoa:
+    nxdomain,soa:
+    opt:
+    opt,cd:
+----
