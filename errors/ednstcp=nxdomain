@@ -1,0 +1,7 @@
+----
+Error: ednstcp=nxdomain
+Steps to reproduce: dig @<SERVER> +edns=0 +nocookie +noad +norec +dnssec +bufsize=512 +tcp SOA <DOMAIN>
+Expected: This test should be considered an error if there's a "dns=ok" field. So there should be an answer with NOERROR status.
+Explanation: The name shouldn't dissapear considering transport flags.
+Solution: Upgrade DNS server to a compliant one.
+----

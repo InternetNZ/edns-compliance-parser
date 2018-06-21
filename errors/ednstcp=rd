@@ -1,0 +1,7 @@
+----
+Error: ednstcp=rd
+Steps to reproduce: dig @<SERVER> +edns=0 +nocookie +noad +norec +dnssec SOA <DOMAIN>
+Expected: The answer shouldn't have a RD flag ";; flags: ... rd ..."
+Explanation: RFC1035, section 4.1.1.: "RD : Recursion Desired - this bit may be set in a query and is copied into the response...".
+Solution: Upgrade DNS server to a compliant one.
+----

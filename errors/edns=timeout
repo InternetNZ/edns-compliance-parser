@@ -1,0 +1,7 @@
+----
+Error: edns=timeout
+Steps to reproduce: dig @<SERVER> +edns=0 +noednsneg +nocookie +noad +norec SOA <DOMAIN>
+Expected: There should be an answer with SOA record or with FORMERR. Lack of response is forbidden.
+Explanation: RFC3225, section 7.: "Responders that choose not to implement the protocol extensions defined in this document MUST respond with a return code (RCODE) of FORMERR to messages containing an OPT record in the additional section..."
+Solution: Upgrade DNS server to a compliant one. Server should answer either with SOA RR or with FORMERR in case of unsupported EDNS.
+----
